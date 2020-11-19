@@ -6,5 +6,5 @@ class Book < ApplicationRecord
         validates :return_time, presence: true
         validates :lend_to, presence: true
 
-        enum status: [:lended, :in_storage]
+        enum status: [:Guardado, :Prestado]
 end

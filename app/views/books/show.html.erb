@@ -1,0 +1,49 @@
+<div class="container text-center">
+    <p><h2>Información del libro</h2></p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row"></th>
+                <td>Título:</td>
+                <td><%= @book.title %></td>
+            </tr>
+
+            <tr>
+                <th scope="row"></th>
+                <td>Autor:</td>
+                <td><%= @book.author %></td>
+            </tr>
+    
+            <tr>
+                <th scope="row"></th>
+                <td>Estado Actual:</td>
+                <td><%= @book.status %></td>
+            </tr>
+
+            <tr>
+                <th scope="row"></th>
+                <td>Prestado a:</td>
+                <td><%= @book.lend_to %></td>
+            </tr>
+
+            <tr>
+                <th scope="row"></th>
+                <td>Fecha del prestamo:</td>
+                <td><%= @book.lend_time %></td>
+            </tr>
+
+            <tr>
+                <th scope="row"></th>
+                <td>Fecha del devolución:</td>
+                <td><%= @book.return_time %></td>
+            </tr>
+        </tbody>
+    </table>
+    <p> <%= link_to "Index", books_path %> </p>
+</div>

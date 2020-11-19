@@ -1,8 +1,7 @@
-
-<h2>Libros</h2>
+<div class="container">
+<h2>Biblioteca</h2>
 <%= link_to "Nuevo libro", books_new_path%>
 <br> 
-<div class="container">
 <table class="table">
     <thead> 
         <tr>
@@ -16,17 +15,17 @@
         </tr>
     </thead>
     <tbody> 
-        <% @books.each do |book|%>
+        <% @books.each do |bk|%>
             <tr>
-                <td><%= book.title %></td>
-                <td><%= book.author %></td>
-                <td><%= book.status %></td>
-                <td><%= book.lend_to %></td>
-                <td><%= book.lend_time %></td>
-                <td><%= book.return_time %></td>
-                <td><%= link_to 'Show', book %></td> <!--Investigar esto-->
-                <td><%= link_to 'Edit', books_edit_path(book) %></td>
-                <td><%= link_to 'Destroy', book, method: :delete, data: {confirm: 'are you sure?'} %></td>
+                <td><%= bk.title %></td>
+                <td><%= bk.author %></td>
+                <td><%= bk.status %></td>
+                <td><%= bk.lend_to %></td>
+                <td><%= bk.lend_time %></td>
+                <td><%= bk.return_time %></td>
+                <td><%= link_to 'Show', '/books/' + bk.id.to_s %></td> 
+                <td><%= link_to 'Edit', '/books/' + bk.id.to_s + '/edit' %></td>
+                <td><%= link_to 'Destroy', '/books/' + bk.id.to_s, method: :delete, data: {confirm: 'are you sure?'} %></td>
             </tr>
         <% end %>
     </tbody>

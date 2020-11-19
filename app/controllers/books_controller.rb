@@ -15,7 +15,7 @@ class BooksController < ApplicationController
   def create
       @book = Book.new(book_params)
       if @book.save
-        redirect_to books_index_path, notice: 'Libro creado exitosamente'
+        redirect_to books_path, notice: 'Libro creado exitosamente'
       else
         flash.now[:alert] = 'Libro no pudo ser creado'
         render :new
@@ -26,9 +26,17 @@ class BooksController < ApplicationController
   end
 
   def update
+    if @book.update(book_params)
+      redirect_to books_path, notice: 'Libro actualizado exitosamente'
+    else
+      flash.now[:alert] = 'Libro no pudo ser actualizado'
+      render :edit
+    end
   end
 
   def destroy
+    @book.destroy
+    redirect_to books_path, notice: 'Libro destruido!'
   end
 
   private

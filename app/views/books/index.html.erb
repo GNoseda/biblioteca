@@ -1,34 +1,34 @@
 <div class="container">
-<h2>Biblioteca</h2>
-<%= link_to "Nuevo libro", books_new_path%>
-<br> 
-<table class="table">
-    <thead> 
-        <tr>
-            <th>Título</th>
-            <th>Autor</th>
-            <th>Estado actual</th>
-            <th>Prestado a</th>
-            <th>Fecha del prestamo</th>
-            <th>Fecha de devolución</th>
-            <th colspan="3"></th>
-        </tr>
-    </thead>
-    <tbody> 
-        <% @books.each do |bk|%>
+    <h2>Biblioteca</h2>
+    <%= link_to "Nuevo libro", books_new_path%>
+    <br> 
+    <table class="table">
+        <thead> 
             <tr>
-                <td><%= bk.title %></td>
-                <td><%= bk.author %></td>
-                <td><%= bk.status %></td>
-                <td><%= bk.lend_to %></td>
-                <td><%= bk.lend_time %></td>
-                <td><%= bk.return_time %></td>
-                <td><%= link_to 'Show', '/books/' + bk.id.to_s %></td> 
-                <td><%= link_to 'Edit', '/books/' + bk.id.to_s + '/edit' %></td>
-                <td><%= link_to 'Destroy', '/books/' + bk.id.to_s, method: :delete, data: {confirm: 'are you sure?'} %></td>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Estado actual</th>
+                <th>Prestado a</th>
+                <th>Fecha del prestamo</th>
+                <th>Fecha de devolución</th>
+                <th colspan="3"></th>
             </tr>
-        <% end %>
-    </tbody>
-    
-</table>
+        </thead>
+        <tbody> 
+            <% @books.each do |bk|%>
+                <tr>
+                    <td><%= bk.title %></td>
+                    <td><%= bk.author %></td>
+                    <td><%= bk.status %></td>
+                    <td><%= bk.lend_to %></td>
+                    <td><%= bk.lend_time %></td>
+                    <td><%= bk.return_time %></td>
+                    <td><%= link_to 'Show', '/books/' + bk.id.to_s %></td> 
+                    <td><%= link_to 'Edit', '/books/' + bk.id.to_s + '/edit' %></td>
+                    <td><%= link_to 'Destroy', '/books/' + bk.id.to_s, method: :delete, data: {confirm: 'are you sure?'} %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <%= paginate @books %>
 </div>

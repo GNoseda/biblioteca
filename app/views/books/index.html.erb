@@ -28,7 +28,7 @@
                     <td><%= link_to 'Destroy', '/books/' + bk.id.to_s, method: :delete, data: {confirm: 'are you sure?'} %></td>
                 </tr>
             <% end %>
-        </tbody>
+        </tbody><nav aria-label="Page navigation example">
     </table>
     <%= paginate @books %>
 </div>

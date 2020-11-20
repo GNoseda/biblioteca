@@ -1,7 +1,7 @@
 
 <div class="container">
     <%= form_for (@book) do |f|%>
-
+        
         <% if @book.errors.any?%>
             <div>
                 <h2> <%= pluralize(@book.errors.count, "error") %> on saving the book:</h2>
@@ -44,7 +44,11 @@
         </div>
 
         <div class="actions">
+
             <%= f.submit 'Crear libro'%>
         </div>
     <% end%>
 </div>
+<br>
+<p> <%= link_to "Index", books_path%> </p>
+

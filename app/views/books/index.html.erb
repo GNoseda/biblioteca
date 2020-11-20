@@ -1,11 +1,19 @@
 <div class="container">
-    <h2>Biblioteca</h2>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand">Biblioteca</a>
+        <%= search_form_for @q do |f|%>
+                <div class="form-group form-inline my-2 my-lg-0">
+                    <%= f.select :status_eq, options_for_select(Book.statuses , @q.status_eq), {}, {class: "form-control mx-2"}%>
+                    <%= f.submit "Filtrar", class: "btn btn-primary"%>
+                </div>
+        <% end %>
+    </nav>
     <%= link_to "Nuevo libro", books_new_path%>
     <br> 
     <table class="table">
         <thead> 
             <tr>
-                <th>Título</th>
+                <th> <%= sort_link(@q, :title)%> </th>
                 <th>Autor</th>
                 <th>Estado actual</th>
                 <th>Prestado a</th>
@@ -21,8 +29,8 @@
                     <td><%= bk.author %></td>
                     <td><%= bk.status %></td>
                     <td><%= bk.lend_to %></td>
-                    <td><%= bk.lend_time %></td>
-                    <td><%= bk.return_time %></td>
+                    <td><%= bk.lend_time.strftime("%d/%m/%Y %T") %></td>
+                    <td><%= bk.return_time.strftime("%d/%m/%Y %T") %></td>
                     <td><%= link_to 'Show', '/books/' + bk.id.to_s %></td> 
                     <td><%= link_to 'Edit', '/books/' + bk.id.to_s + '/edit' %></td>
                     <td><%= link_to 'Destroy', '/books/' + bk.id.to_s, method: :delete, data: {confirm: 'are you sure?'} %></td>
